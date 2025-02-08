@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perdóname, Vannie 💖</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.imgur.com/GoHCyia.jpeg'); /* Fondo de tulipanes */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.8); /* Cuadro semitransparente */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #d63384; /* Rosa oscuro */
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #yes {
+            background-color: #ff69b4; /* Rosa */
+            color: white;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #yes:hover {
+            background-color: #ff1493;
+        }
+
+        #no {
+            background-color: #e63946; /* Rojo */
+            color: white;
+        }
+
+        #no:hover {
+            background-color: #d62828;
+        }
+
+        #gif-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #message {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        #response {
+            font-size: 1.5em;
+            color: #ff1493;
+            margin-top: 15px;
+            display: none; /* Oculto hasta que presione "Sí" */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <h2>Lo siento wawita, no me gusta que estés apartada de mí y mucho menos ser yo la razón de ello.  
+        Eres lo más importante para mí y lo último que quiero es verte lejos cuando anhelo siempre estar junto a ti. 💖</h2>
+
+        <h1>¿me perdonas bonita? 🩷</h1>
+
+        <div class="button-container">
+            <button id="yes">Sí 🐇</button>
+            <button id="no">No 😓</button>
+        </div>
+
+        <p id="message"></p>
+
+        <div id="gif-container">
+            <img src="https://media1.giphy.com/media/Ie4CIIvQS0bk3zwZlM/giphy.gif" alt="Mocha y Milk abrazándose">
+            <p id="response">¡Sabía que lo harias! Te amo <3. quiero estar contigo esta noche 💕</p>
+        </div>
+    </div>
+
+    <script>
+        let noButton = document.getElementById("no");
+        let yesButton = document.getElementById("yes");
+        let message = document.getElementById("message");
+        let gifContainer = document.getElementById("gif-container");
+        let responseText = document.getElementById("response");
+
+        let noMessages = [
+            "EEEYYY 😢",
+            "Poque le das que no 💔",
+            "Pero si yo te amo 🥺💕",
+            "Te quiero conmigo 😭",
+            "Vannie, eres mi todo 🩷",
+            "Te va a salir el coco eh 😊"
+        ];
+
+        let index = 0;
+        let yesSize = 1.2; // Tamaño inicial del botón "Sí"
+
+        noButton.addEventListener("click", function() {
+            if (index < noMessages.length) {
+                message.textContent = noMessages[index];
+                index++;
+            } else {
+                message.textContent = "*se muere* 💔";
+            }
+
+            // Hace crecer el botón "Sí" cada vez que presiona "No"
+            yesSize += 0.2;
+            yesButton.style.transform = `scale(${yesSize})`;
+        });
+
+        yesButton.addEventListener("click", function() {
+            gifContainer.style.display = "block";
+            responseText.style.display = "block"; // Muestra el mensaje debajo del GIF
+        });
+    </script>
+
+</body>
+</html>
+
